@@ -48,8 +48,7 @@ export default function HeroAnimation() {
 
       <h1
         ref={titleRef}
-        className="text-[clamp(2rem,8vw,12rem)] leading-[1.1] font-bold my-4 overflow-hidden w-full text-center tracking-tight font-playfair"
-        style={{ whiteSpace: 'nowrap' }}
+        className="text-[clamp(2rem,8vw,12rem)] leading-[1.1] font-bold my-4 overflow-hidden w-full text-center tracking-tight font-playfair whitespace-normal lg:whitespace-nowrap"
       >
         {title.split('').map((char, i) => (
           <span key={i} className="char inline-block translate-y-[110%]">

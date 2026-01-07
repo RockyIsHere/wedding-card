@@ -8,6 +8,7 @@ import CustomCursor from '@/components/CustomCursor';
 import SmoothScroll from '@/components/SmoothScroll';
 import HeroAnimation from '@/components/HeroAnimation';
 import Countdown from '@/components/Countdown';
+import MobileNav from '@/components/MobileNav';
 import ScrollAnimations from '@/components/ScrollAnimations';
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
     <>
       {!loaderComplete && <Loader onComplete={() => setLoaderComplete(true)} />}
       <CustomCursor />
+      <MobileNav />
       <div className="noise" />
 
       <SmoothScroll>

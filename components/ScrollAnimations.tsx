@@ -62,25 +62,31 @@ export default function ScrollAnimations() {
       );
     });
 
+
     // Horizontal Scroll
     const horizontalContent = document.querySelector('.horizontal-content');
+    const mm = gsap.matchMedia();
+
     if (horizontalContent) {
-      gsap.to(horizontalContent, {
-        x: () => -(horizontalContent.scrollWidth - window.innerWidth),
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.horizontal-wrap',
-          start: 'top top',
-          end: () => '+=' + horizontalContent.scrollWidth,
-          scrub: 1,
-          pin: true,
-          invalidateOnRefresh: true,
-        },
+      mm.add("(min-width: 1024px)", () => {
+        gsap.to(horizontalContent, {
+          x: () => -(horizontalContent.scrollWidth - window.innerWidth),
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.horizontal-wrap',
+            start: 'top top',
+            end: () => '+=' + horizontalContent.scrollWidth,
+            scrub: 1,
+            pin: true,
+            invalidateOnRefresh: true,
+          },
+        });
       });
     }
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      mm.revert();
     };
   }, []);
 
