@@ -242,7 +242,7 @@ export default function Home() {
                     <h3 className="font-serif text-2xl mb-2">Guest Stay</h3>
                     <p className="opacity-70 text-sm">
                        <strong>The Grand Regency</strong> or <strong>Heritage Inn</strong>. <br/>
-                       Concierge: +91 98765 43210
+                       Concierge: +91 70294 06424
                     </p>
                   </div>
                 </ScrollReveal>

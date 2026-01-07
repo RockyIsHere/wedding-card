@@ -52,6 +52,7 @@ export default function ScrollReveal({
         variants={variants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
+        className="h-full w-full"
       >
         {children}
       </motion.div>
