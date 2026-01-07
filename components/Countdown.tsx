@@ -39,36 +39,36 @@ export default function Countdown() {
   const formatNumber = (num: number) => (num < 10 ? `0${num}` : num);
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
-      <div className="count-item text-center p-10 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-2xl">
-        <span className="count-num text-5xl md:text-7xl font-bold text-[#d4af37] block leading-none">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 mt-16 px-4 lg:px-0">
+      <div className="glass-panel p-6 lg:p-10 rounded-2xl flex flex-col items-center justify-center min-h-[160px]">
+        <span className="text-4xl lg:text-7xl font-bold text-[var(--accent)] block leading-none font-serif mb-2">
           {formatNumber(timeLeft.days)}
         </span>
-        <span className="count-label uppercase text-xs tracking-[2px] opacity-50 mt-2 block">
-          Days to go
+        <span className="uppercase text-[10px] lg:text-xs tracking-[0.2em] opacity-50">
+          Days
         </span>
       </div>
-      <div className="count-item text-center p-10 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-2xl">
-        <span className="count-num text-5xl md:text-7xl font-bold text-[#d4af37] block leading-none">
+      <div className="glass-panel p-6 lg:p-10 rounded-2xl flex flex-col items-center justify-center min-h-[160px]">
+        <span className="text-4xl lg:text-7xl font-bold text-[var(--accent)] block leading-none font-serif mb-2">
           {formatNumber(timeLeft.hours)}
         </span>
-        <span className="count-label uppercase text-xs tracking-[2px] opacity-50 mt-2 block">
+        <span className="uppercase text-[10px] lg:text-xs tracking-[0.2em] opacity-50">
           Hours
         </span>
       </div>
-      <div className="count-item text-center p-10 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-2xl">
-        <span className="count-num text-5xl md:text-7xl font-bold text-[#d4af37] block leading-none">
+      <div className="glass-panel p-6 lg:p-10 rounded-2xl flex flex-col items-center justify-center min-h-[160px]">
+        <span className="text-4xl lg:text-7xl font-bold text-[var(--accent)] block leading-none font-serif mb-2">
           {formatNumber(timeLeft.minutes)}
         </span>
-        <span className="count-label uppercase text-xs tracking-[2px] opacity-50 mt-2 block">
+        <span className="uppercase text-[10px] lg:text-xs tracking-[0.2em] opacity-50">
           Minutes
         </span>
       </div>
-      <div className="count-item text-center p-10 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-2xl">
-        <span className="count-num text-5xl md:text-7xl font-bold text-[#d4af37] block leading-none">
+      <div className="glass-panel p-6 lg:p-10 rounded-2xl flex flex-col items-center justify-center min-h-[160px]">
+        <span className="text-4xl lg:text-7xl font-bold text-[var(--accent)] block leading-none font-serif mb-2">
           {formatNumber(timeLeft.seconds)}
         </span>
-        <span className="count-label uppercase text-xs tracking-[2px] opacity-50 mt-2 block">
+        <span className="uppercase text-[10px] lg:text-xs tracking-[0.2em] opacity-50">
           Seconds
         </span>
       </div>

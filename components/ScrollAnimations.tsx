@@ -10,17 +10,27 @@ export default function ScrollAnimations() {
   useEffect(() => {
     // Story Reveal Animation
     gsap.utils.toArray('.reveal-text').forEach((text) => {
-      gsap.to(text as HTMLElement, {
-        scrollTrigger: {
-          trigger: text as HTMLElement,
-          start: 'top 85%',
-          end: 'top 45%',
-          scrub: true,
+      gsap.fromTo(
+        text as HTMLElement,
+        {
+          y: 60,
+          opacity: 0,
+          filter: 'blur(10px)',
         },
-        opacity: 1,
-        color: '#d4af37',
-        duration: 1,
-      });
+        {
+          y: 0,
+          opacity: 1,
+          filter: 'blur(0px)',
+          color: '#d4af37',
+          duration: 1.5,
+          scrollTrigger: {
+            trigger: text as HTMLElement,
+            start: 'top 90%',
+            end: 'top 55%',
+            scrub: 1,
+          },
+        }
+      );
     });
 
     // Couple Photos Reveal
