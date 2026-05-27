@@ -1,0 +1,10 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // groceryItems — readable by anyone with the API key (admin portal is auth-gated)
+    // writeable by anyone with the API key (admin portal is password-protected)
+    match /groceryItems/{itemId} {
+      allow read, write: if true;
+    }
+  }
+}

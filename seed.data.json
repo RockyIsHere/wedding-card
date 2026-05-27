@@ -1,0 +1,1348 @@
+{
+  "catering_service_details": {
+    "chef_name": "Shri Hridoy Kanto Jha",
+    "contact_number": "99329 31950",
+    "location": "Golapatti Bandh Road, P.O. & Dist: Malda - 732101",
+    "services_offered": "Cooking services for weddings, rice ceremonies, sacred thread ceremonies, birthdays, and other events."
+  },
+  "grocery_list": [
+    {
+      "item_number": 1,
+      "bengali_name": "আতপ চাল",
+      "english_name": "Atap Rice (Sun-dried rice)",
+      "quantity": "10 kg",
+      "handwritten_notes": "Govindobhog old",
+      "status": "Selected"
+    },
+    {
+      "item_number": 2,
+      "bengali_name": "সিদ্ধ চাল",
+      "english_name": "Parboiled Rice",
+      "quantity": "7 kg",
+      "handwritten_notes": "Basmati old",
+      "status": "Selected"
+    },
+    {
+      "item_number": 3,
+      "bengali_name": "মুগডাল",
+      "english_name": "Moong Dal (Yellow split gram)",
+      "quantity": "1.5 kg",
+      "handwritten_notes": "Sona Moong",
+      "status": "Selected"
+    },
+    {
+      "item_number": 4,
+      "bengali_name": "বিউলি ডাল",
+      "english_name": "Biuli Dal (Black gram/Urad dal)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 5,
+      "bengali_name": "মসুর ডাল",
+      "english_name": "Musur Dal (Red lentil)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 6,
+      "bengali_name": "ছোলার ডাল",
+      "english_name": "Cholar Dal (Bengal gram/Chana dal)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 7,
+      "bengali_name": "মটর ডাল",
+      "english_name": "Motor Dal (Split yellow peas)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 8,
+      "bengali_name": "অড়হর ডাল",
+      "english_name": "Arhar Dal (Pigeon peas/Toor dal)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 9,
+      "bengali_name": "মাছ",
+      "english_name": "Fish",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Not Specified"
+    },
+    {
+      "item_number": 10,
+      "bengali_name": "পোনা মাছ",
+      "english_name": "Pona Fish (Indian Carp)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Not Specified"
+    },
+    {
+      "item_number": 11,
+      "bengali_name": "ইলিশ মাছ",
+      "english_name": "Ilish (Hilsa) Fish",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Not Specified"
+    },
+    {
+      "item_number": 12,
+      "bengali_name": "রুই মাছ",
+      "english_name": "Rui (Rohu) Fish",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Not Specified"
+    },
+    {
+      "item_number": 13,
+      "bengali_name": "কাতলা মাছ",
+      "english_name": "Katla Fish",
+      "quantity": "4 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 14,
+      "bengali_name": "পাবদা মাছ",
+      "english_name": "Pabda Fish",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Not Specified"
+    },
+    {
+      "item_number": 15,
+      "bengali_name": "ভেটকি মাছ",
+      "english_name": "Bhetki Fish (Barramundi)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Not Specified"
+    },
+    {
+      "item_number": 16,
+      "bengali_name": "আড় মাছ",
+      "english_name": "Aar Fish (Catfish)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Not Specified"
+    },
+    {
+      "item_number": 17,
+      "bengali_name": "চিতল মাছ",
+      "english_name": "Chital Fish (Featherback)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Not Specified"
+    },
+    {
+      "item_number": 18,
+      "bengali_name": "মুরগীর মাংস",
+      "english_name": "Chicken",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Not Specified"
+    },
+    {
+      "item_number": 19,
+      "bengali_name": "খাসীর মাংস",
+      "english_name": "Mutton (Goat meat)",
+      "quantity": "40 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 20,
+      "bengali_name": "ছোট লাল আলু",
+      "english_name": "Small Red Potatoes",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 21,
+      "bengali_name": "সাদা আলু",
+      "english_name": "White Potatoes",
+      "quantity": "5 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 22,
+      "bengali_name": "পটল",
+      "english_name": "Potol (Pointed gourd)",
+      "quantity": "2 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 23,
+      "bengali_name": "ফুলকপি",
+      "english_name": "Cauliflower",
+      "quantity": "2 pc",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 24,
+      "bengali_name": "বাঁধাকপি",
+      "english_name": "Cabbage",
+      "quantity": "8 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 25,
+      "bengali_name": "মিষ্টি কুমড়া",
+      "english_name": "Sweet Pumpkin",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 26,
+      "bengali_name": "কাঁঠাল",
+      "english_name": "Jackfruit",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 27,
+      "bengali_name": "সজনা",
+      "english_name": "Sajna (Drumstick)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 28,
+      "bengali_name": "মুলো",
+      "english_name": "Mulo (Radish)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 29,
+      "bengali_name": "করলা",
+      "english_name": "Korola (Bitter gourd)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 30,
+      "bengali_name": "কাটোয়া ডাটা",
+      "english_name": "Katwa Data (Amaranth stems)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 31,
+      "bengali_name": "বেগুন",
+      "english_name": "Begun (Eggplant/Brinjal)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 32,
+      "bengali_name": "ঝিঙে",
+      "english_name": "Jhinge (Ridge gourd)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 33,
+      "bengali_name": "পেঁপে",
+      "english_name": "Pepe (Papaya)",
+      "quantity": "4 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 34,
+      "bengali_name": "আনারস",
+      "english_name": "Anaras (Pineapple)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 35,
+      "bengali_name": "জলপাই",
+      "english_name": "Jalpai (Indian Olive)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 36,
+      "bengali_name": "আম",
+      "english_name": "Mango",
+      "quantity": "8 kg",
+      "handwritten_notes": "Fazli variety",
+      "status": "Selected"
+    },
+    {
+      "item_number": 37,
+      "bengali_name": "আমড়া",
+      "english_name": "Amra (Hog plum)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 38,
+      "bengali_name": "কাঁচালঙ্কা",
+      "english_name": "Kacha Lanka (Green chillies)",
+      "quantity": "1 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 39,
+      "bengali_name": "শুকনো লঙ্কা",
+      "english_name": "Shukno Lanka (Dry red chillies)",
+      "quantity": "50 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 40,
+      "bengali_name": "Catch লঙ্কার গুঁড়ো",
+      "english_name": "Catch Chilli Powder",
+      "quantity": "750 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 41,
+      "bengali_name": "আদা",
+      "english_name": "Ada (Ginger)",
+      "quantity": "2 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 42,
+      "bengali_name": "পিয়াজ",
+      "english_name": "Piyaj (Onion)",
+      "quantity": "15 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 43,
+      "bengali_name": "রসুন",
+      "english_name": "Roshun (Garlic)",
+      "quantity": "1.5 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 44,
+      "bengali_name": "তেঁতুল",
+      "english_name": "Tetul (Tamarind)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 45,
+      "bengali_name": "শশা",
+      "english_name": "Sasha (Cucumber)",
+      "quantity": "5 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 46,
+      "bengali_name": "কারিপাতা",
+      "english_name": "Karipata (Curry leaves)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 47,
+      "bengali_name": "রসুন পাতা",
+      "english_name": "Roshun Pata (Garlic greens/chives)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 48,
+      "bengali_name": "টমেটো",
+      "english_name": "Tomato",
+      "quantity": "3 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 49,
+      "bengali_name": "বীট",
+      "english_name": "Beetroot",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 50,
+      "bengali_name": "গাজর",
+      "english_name": "Gajor (Carrot)",
+      "quantity": "6 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 51,
+      "bengali_name": "লেবু",
+      "english_name": "Lebu (Lemon/Lime)",
+      "quantity": "40 pc",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 52,
+      "bengali_name": "ধনেপাতা",
+      "english_name": "Dhonepata (Coriander leaves)",
+      "quantity": "500 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 53,
+      "bengali_name": "ক্যাপসিকাম",
+      "english_name": "Capsicum (Bell pepper)",
+      "quantity": "4 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 54,
+      "bengali_name": "বিন্স",
+      "english_name": "French Beans",
+      "quantity": "2 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 55,
+      "bengali_name": "সরিষার তেল",
+      "english_name": "Shorishar Tel (Mustard oil)",
+      "quantity": "15 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 56,
+      "bengali_name": "সাদা তেল (সান ফ্লাওয়ার)",
+      "english_name": "White Oil (Sunflower oil)",
+      "quantity": "2 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 57,
+      "bengali_name": "চিনা বাদাম",
+      "english_name": "Peanuts",
+      "quantity": "750 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 58,
+      "bengali_name": "ছানা",
+      "english_name": "Chhana (Cottage cheese curd)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 59,
+      "bengali_name": "পনির",
+      "english_name": "Paneer",
+      "quantity": "5 kg",
+      "handwritten_notes": "Bhagirathi brand",
+      "status": "Selected"
+    },
+    {
+      "item_number": 60,
+      "bengali_name": "ঘি",
+      "english_name": "Ghee (Clarified butter)",
+      "quantity": "1.5 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 61,
+      "bengali_name": "জিরা",
+      "english_name": "Jeera (Cumin seeds)",
+      "quantity": "500 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 62,
+      "bengali_name": "Catch জিরা গুঁড়ো",
+      "english_name": "Catch Cumin Powder",
+      "quantity": "1 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 63,
+      "bengali_name": "Catch ধনে গুঁড়ো",
+      "english_name": "Catch Coriander Powder",
+      "quantity": "500 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 64,
+      "bengali_name": "Catch হলুদ গুঁড়ো",
+      "english_name": "Catch Turmeric Powder",
+      "quantity": "750 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 65,
+      "bengali_name": "লবন",
+      "english_name": "Lobon (Salt)",
+      "quantity": "3 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 66,
+      "bengali_name": "হিং",
+      "english_name": "Hing (Asafoetida)",
+      "quantity": "5 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 67,
+      "bengali_name": "জাইফল",
+      "english_name": "Jaiphal (Nutmeg)",
+      "quantity": "8 pc",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 68,
+      "bengali_name": "জয়ত্রী",
+      "english_name": "Javitri (Mace)",
+      "quantity": "50 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 69,
+      "bengali_name": "মগজ",
+      "english_name": "Mogoj (Melon seeds/Charmagaz)",
+      "quantity": "750 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 70,
+      "bengali_name": "কাজু",
+      "english_name": "Kaju (Cashew nuts)",
+      "quantity": "1.5 kg",
+      "handwritten_notes": "Split into halves",
+      "status": "Selected"
+    },
+    {
+      "item_number": 71,
+      "bengali_name": "কিসমিস",
+      "english_name": "Kismis (Raisins)",
+      "quantity": "1.5 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 72,
+      "bengali_name": "পেস্তা",
+      "english_name": "Pista (Pistachios)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 73,
+      "bengali_name": "কাবাব চিনি",
+      "english_name": "Kabab Chini (Allspice/Cubeb)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 74,
+      "bengali_name": "জাফরান (Baby Saffron)",
+      "english_name": "Saffron (Baby Saffron)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 75,
+      "bengali_name": "সাহা জিরা",
+      "english_name": "Shahi Jeera (Caraway seeds)",
+      "quantity": "50 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 76,
+      "bengali_name": "সাহা মরিচ",
+      "english_name": "Shahi Morich (White pepper)",
+      "quantity": "50 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 77,
+      "bengali_name": "তেজপাতা",
+      "english_name": "Tejpatta (Bay leaves)",
+      "quantity": "50 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 78,
+      "bengali_name": "এলাচ",
+      "english_name": "Elachi (Cardamom)",
+      "quantity": "75 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 79,
+      "bengali_name": "বড় এলাচ",
+      "english_name": "Black Cardamom",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 80,
+      "bengali_name": "ধনা",
+      "english_name": "Coriander Seeds",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 81,
+      "bengali_name": "বড়ি",
+      "english_name": "Bori (Sun-dried lentil dumplings)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 82,
+      "bengali_name": "লবঙ্গ",
+      "english_name": "Lobongo (Cloves)",
+      "quantity": "5 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 83,
+      "bengali_name": "দারচিনি",
+      "english_name": "Darchini (Cinnamon)",
+      "quantity": "75 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 84,
+      "bengali_name": "মেথি",
+      "english_name": "Methi (Fenugreek seeds)",
+      "quantity": "50 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 85,
+      "bengali_name": "মৌরী",
+      "english_name": "Mouri (Fennel seeds)",
+      "quantity": "50 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 86,
+      "bengali_name": "সরিষা",
+      "english_name": "Mustard Seeds",
+      "quantity": "50 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 87,
+      "bengali_name": "কালোজিরা",
+      "english_name": "Kalonji (Nigella seeds)",
+      "quantity": "50 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 88,
+      "bengali_name": "কর্ন ফ্লাওয়ার",
+      "english_name": "Corn Flour",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 89,
+      "bengali_name": "খাওয়ার সোডা",
+      "english_name": "Baking Soda",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 90,
+      "bengali_name": "গোল মরিচ",
+      "english_name": "Black Pepper",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 91,
+      "bengali_name": "কলের ময়দা",
+      "english_name": "Milled Flour/Atta",
+      "quantity": "1 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 92,
+      "bengali_name": "চালের গুঁড়া",
+      "english_name": "Rice Flour",
+      "quantity": "3 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 93,
+      "bengali_name": "এরারুট",
+      "english_name": "Arrowroot",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 94,
+      "bengali_name": "বিট লবন",
+      "english_name": "Black Salt (Bit lobon)",
+      "quantity": "50 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 95,
+      "bengali_name": "ছোলার বেসন",
+      "english_name": "Besan (Gram/chickpea flour)",
+      "quantity": "2 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 96,
+      "bengali_name": "ছোলার ছাতু",
+      "english_name": "Cholar Chatu (Roasted gram flour)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 97,
+      "bengali_name": "বিস্কুটের গুঁড়া",
+      "english_name": "Biscuit powder / Breadcrumbs",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 98,
+      "bengali_name": "নারকেল Powder",
+      "english_name": "Coconut Powder",
+      "quantity": "500 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 99,
+      "bengali_name": "সবুজ মটর",
+      "english_name": "Green Peas (Dry/Fresh)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 100,
+      "bengali_name": "আজিনা মটর",
+      "english_name": "MSG (Ajinomoto)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 101,
+      "bengali_name": "আদার সুট",
+      "english_name": "Dry Ginger (Sunthi)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 102,
+      "bengali_name": "ইস্ট",
+      "english_name": "Yeast",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 103,
+      "bengali_name": "Catch মিট মসলা",
+      "english_name": "Catch Meat Masala",
+      "quantity": "200 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 104,
+      "bengali_name": "গুড়",
+      "english_name": "Jaggery (Gur)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 105,
+      "bengali_name": "দুধ Amul",
+      "english_name": "Amul Milk (Liquid)",
+      "quantity": "1 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 106,
+      "bengali_name": "কফি",
+      "english_name": "Coffee",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Not Specified"
+    },
+    {
+      "item_number": 107,
+      "bengali_name": "পোস্ত",
+      "english_name": "Posto (Poppy seeds)",
+      "quantity": "150 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 108,
+      "bengali_name": "আটা",
+      "english_name": "Atta (Whole wheat flour)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 109,
+      "bengali_name": "চিনি",
+      "english_name": "Sugar",
+      "quantity": "10 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 110,
+      "bengali_name": "হাইড্রো",
+      "english_name": "Hydro (Bleaching agent/Sodium hydrosulfite)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 111,
+      "bengali_name": "বেকিং পাউডার(Wilk Field)",
+      "english_name": "Baking Powder (Wilk Field)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 112,
+      "bengali_name": "জোয়ান",
+      "english_name": "Jowan (Carom seeds/Ajwain)",
+      "quantity": "50 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 113,
+      "bengali_name": "এসেন্স",
+      "english_name": "Essence",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 114,
+      "bengali_name": "আমসত্ব",
+      "english_name": "Aamsotto (Mango bar/leather)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 115,
+      "bengali_name": "পিন খেজুর",
+      "english_name": "Premium Dates",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 116,
+      "bengali_name": "কাবলি ছোলা",
+      "english_name": "Kabuli Chana (Chickpeas)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 117,
+      "bengali_name": "ডিম",
+      "english_name": "Eggs",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 118,
+      "bengali_name": "অজন্তা ক্রীম",
+      "english_name": "Ajanta Cream",
+      "quantity": "200 g",
+      "handwritten_notes": "Small tub",
+      "status": "Selected"
+    },
+    {
+      "item_number": 119,
+      "bengali_name": "টমেটো শশ",
+      "english_name": "Tomato Ketchup/Sauce",
+      "quantity": "500 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 120,
+      "bengali_name": "চিলি শশ",
+      "english_name": "Chilli Sauce",
+      "quantity": "200 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 121,
+      "bengali_name": "সোয়াবিন শশ",
+      "english_name": "Soy Sauce",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Not Specified"
+    },
+    {
+      "item_number": 122,
+      "bengali_name": "Catch কাশ্মীরী লঙ্কারগুড়ো",
+      "english_name": "Catch Kashmiri Red Chilli Powder",
+      "quantity": "200 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 123,
+      "bengali_name": "বাটার",
+      "english_name": "Butter",
+      "quantity": "500 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 124,
+      "bengali_name": "মটরশুটি",
+      "english_name": "Green Peas (Frozen/Packaged)",
+      "quantity": "500 g",
+      "handwritten_notes": "Package",
+      "status": "Selected"
+    },
+    {
+      "item_number": 125,
+      "bengali_name": "ভিনিগার",
+      "english_name": "Vinegar",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 126,
+      "bengali_name": "টক দই",
+      "english_name": "Sour Curd (Yogurt)",
+      "quantity": "2 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 127,
+      "bengali_name": "পাপড়",
+      "english_name": "Papad",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 128,
+      "bengali_name": "গোলাপ জল",
+      "english_name": "Rose Water",
+      "quantity": "100 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 129,
+      "bengali_name": "আপেল",
+      "english_name": "Apple",
+      "quantity": null,
+      "handwritten_notes": "Grouped under a single cross-mark",
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 130,
+      "bengali_name": "বেদানা",
+      "english_name": "Pomegranate",
+      "quantity": null,
+      "handwritten_notes": "Grouped under a single cross-mark",
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 131,
+      "bengali_name": "কলা",
+      "english_name": "Banana",
+      "quantity": null,
+      "handwritten_notes": "Grouped under a single cross-mark",
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 132,
+      "bengali_name": "আনারস",
+      "english_name": "Pineapple",
+      "quantity": null,
+      "handwritten_notes": "Grouped under a single cross-mark",
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 133,
+      "bengali_name": "কমলালেবু",
+      "english_name": "Orange",
+      "quantity": null,
+      "handwritten_notes": "Grouped under a single cross-mark",
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 134,
+      "bengali_name": "পেপার",
+      "english_name": "Paper Plates/Tissues",
+      "quantity": "1 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    }
+  ],
+  "utensils_and_equipment_list": [
+    {
+      "item_number": 1,
+      "bengali_name": "পুরাতন কাপড়",
+      "english_name": "Old cotton cloth (cleaning rags)",
+      "quantity": "1 pc",
+      "handwritten_notes": "Cotton ('Suti')",
+      "status": "Selected"
+    },
+    {
+      "item_number": 2,
+      "bengali_name": "কফি",
+      "english_name": "Coffee/Cabbage/Cups",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Not Specified"
+    },
+    {
+      "item_number": 3,
+      "bengali_name": "কড়াই",
+      "english_name": "Karahi (Wok)",
+      "quantity": "2 pc",
+      "handwritten_notes": "Large ('Boro')",
+      "status": "Selected"
+    },
+    {
+      "item_number": 4,
+      "bengali_name": "পরাত",
+      "english_name": "Large flat dough kneading platter ('Porat')",
+      "quantity": "2 pc",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 5,
+      "bengali_name": "এলুমিনিয়াম টব",
+      "english_name": "Aluminium Tubs",
+      "quantity": "10 pc",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 6,
+      "bengali_name": "ওভেন",
+      "english_name": "Gas Ovens/Cooking burners",
+      "quantity": "2 pc",
+      "handwritten_notes": "Large ('Boro')",
+      "status": "Selected"
+    },
+    {
+      "item_number": 7,
+      "bengali_name": "সসপেন",
+      "english_name": "Saucepan",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 8,
+      "bengali_name": "ঢাকনা",
+      "english_name": "Lids (for pots)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 9,
+      "bengali_name": "বটি",
+      "english_name": "Boti (Traditional standing vegetable cutter)",
+      "quantity": "5 pc",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 10,
+      "bengali_name": "হামলদস্তা",
+      "english_name": "Mortar & Pestle ('Hamandista')",
+      "quantity": "1 pc",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 11,
+      "bengali_name": "শিল্পাতা",
+      "english_name": "Grinding Stone / Electric Mixer Grinder",
+      "quantity": "1 pc",
+      "handwritten_notes": "Mixer Grinder ('Mixi') requested instead",
+      "status": "Selected"
+    },
+    {
+      "item_number": 12,
+      "bengali_name": "স্টীল গামলা",
+      "english_name": "Steel bowl basins",
+      "quantity": "20 pc",
+      "handwritten_notes": "Small ('Chhoto')",
+      "status": "Selected"
+    },
+    {
+      "item_number": 13,
+      "bengali_name": "হাতা",
+      "english_name": "Ladles",
+      "quantity": "15 pc",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 14,
+      "bengali_name": "চিমটা",
+      "english_name": "Tongs",
+      "quantity": "5 pc",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 15,
+      "bengali_name": "লং ট্রে",
+      "english_name": "Long serving trays",
+      "quantity": "2 pc",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 16,
+      "bengali_name": "ছোট ট্রে",
+      "english_name": "Small serving trays",
+      "quantity": "4 pc",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 17,
+      "bengali_name": "জগ",
+      "english_name": "Water jugs",
+      "quantity": "2 pc",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 18,
+      "bengali_name": "ড্রাম",
+      "english_name": "Large drums (water storage)",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 19,
+      "bengali_name": "বালতি",
+      "english_name": "Buckets",
+      "quantity": "4 pc",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 20,
+      "bengali_name": "নারকেল কুড়ানি",
+      "english_name": "Coconut scraper",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 21,
+      "bengali_name": "মশারি নেট",
+      "english_name": "Mosquito net cover (to protect food)",
+      "quantity": "1.5 meters",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 22,
+      "bengali_name": "ডালি",
+      "english_name": "Serving baskets/flat plates",
+      "quantity": "1 pc",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 23,
+      "bengali_name": "সিলিন্ডার",
+      "english_name": "Gas Cylinders",
+      "quantity": "2 pc",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 24,
+      "bengali_name": "নৌকা",
+      "english_name": "Boat-shaped serving platters/bowls",
+      "quantity": "2 pc",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 25,
+      "bengali_name": "বড় ঢাকনা",
+      "english_name": "Large lids",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Crossed Out"
+    },
+    {
+      "item_number": 26,
+      "bengali_name": "পরিবেশনের ছেলে",
+      "english_name": "Serving staff/Catering boys",
+      "quantity": null,
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 27,
+      "bengali_name": "দেশলাই, ধুপকাঠি",
+      "english_name": "Matchboxes & Incense sticks",
+      "quantity": "2 pc",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 28,
+      "bengali_name": "সিঁদুর",
+      "english_name": "Sindoor (Vermillion)",
+      "quantity": "1 pack",
+      "handwritten_notes": "Chhata brand ('ছাতা')",
+      "status": "Selected"
+    },
+    {
+      "item_number": 29,
+      "bengali_name": "পান",
+      "english_name": "Betel Leaves",
+      "quantity": "2 pc",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 30,
+      "bengali_name": "বাতাসা",
+      "english_name": "Batasa (Crisp sugar drops)",
+      "quantity": "50 g",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 31,
+      "bengali_name": "পিতলের হাড়ি",
+      "english_name": "Brass pots",
+      "quantity": "2 pc",
+      "handwritten_notes": "Large ('Boro')",
+      "status": "Selected"
+    },
+    {
+      "item_number": 32,
+      "bengali_name": "Surf",
+      "english_name": "Washing Powder",
+      "quantity": "1 kg",
+      "handwritten_notes": null,
+      "status": "Selected"
+    },
+    {
+      "item_number": 33,
+      "bengali_name": "পালং শাক",
+      "english_name": "Spinach",
+      "quantity": "2 kg",
+      "handwritten_notes": "Note: listed at the bottom-right of utensils page",
+      "status": "Selected"
+    }
+  ]
+}
