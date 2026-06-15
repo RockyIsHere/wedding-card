@@ -344,6 +344,11 @@ export default function GroceryDashboard() {
     });
   }, []);
 
+  // Update quantity inline
+  const updateQty = useCallback(async (id: string, value: string) => {
+    await updateDoc(doc(db, 'groceryItems', id), { qty: value, updatedAt: new Date() });
+  }, []);
+
   const saveEdit = useCallback(async (updated: GroceryItem) => {
     const { id, ...data } = updated;
     await updateDoc(doc(db, 'groceryItems', id), { ...data, updatedAt: new Date() });
@@ -635,7 +640,7 @@ export default function GroceryDashboard() {
                         {item.bengaliName && (
                           <p className="text-[10px] text-white/20 truncate">{item.bengaliName}</p>
                         )}
-                        <span className="text-[10px] text-white/30">{item.qty || '—'} · {t[item.category]}</span>
+                        <input type="text" placeholder="Qty" value={item.qty || ''} onChange={e => updateQty(item.id, e.target.value)} className="text-[10px] text-white/30 bg-transparent border-b border-white/30 focus:border-white/70 outline-none" /> · {t[item.category]}
                       </div>
                     </div>
                     <div className="flex items-center gap-2 ml-2" onClick={e => e.stopPropagation()}>

@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -23,8 +23,10 @@ export default function CustomCursor() {
     };
 
     const animateFollower = () => {
-      followerPos.current.x += (mousePos.current.x - followerPos.current.x - 20) * 0.12;
-      followerPos.current.y += (mousePos.current.y - followerPos.current.y - 20) * 0.12;
+      followerPos.current.x +=
+        (mousePos.current.x - followerPos.current.x - 20) * 0.12;
+      followerPos.current.y +=
+        (mousePos.current.y - followerPos.current.y - 20) * 0.12;
 
       if (followerRef.current) {
         followerRef.current.style.transform = `translate(${followerPos.current.x}px, ${followerPos.current.y}px)`;
@@ -33,13 +35,13 @@ export default function CustomCursor() {
       requestAnimationFrame(animateFollower);
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
     animateFollower();
 
     const handleHoverIn = () => {
       gsap.to(followerRef.current, {
         scale: 2,
-        background: 'rgba(212, 175, 55, 0.1)',
+        background: "rgba(212, 175, 55, 0.1)",
         duration: 0.3,
       });
     };
@@ -47,22 +49,24 @@ export default function CustomCursor() {
     const handleHoverOut = () => {
       gsap.to(followerRef.current, {
         scale: 1,
-        background: 'none',
+        background: "none",
         duration: 0.3,
       });
     };
 
-    const hoverElements = document.querySelectorAll('a, button, .track, .gallery-item');
+    const hoverElements = document.querySelectorAll(
+      "a, button, .track, .gallery-item",
+    );
     hoverElements.forEach((el) => {
-      el.addEventListener('mouseenter', handleHoverIn);
-      el.addEventListener('mouseleave', handleHoverOut);
+      el.addEventListener("mouseenter", handleHoverIn);
+      el.addEventListener("mouseleave", handleHoverOut);
     });
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener("mousemove", handleMouseMove);
       hoverElements.forEach((el) => {
-        el.removeEventListener('mouseenter', handleHoverIn);
-        el.removeEventListener('mouseleave', handleHoverOut);
+        el.removeEventListener("mouseenter", handleHoverIn);
+        el.removeEventListener("mouseleave", handleHoverOut);
       });
     };
   }, []);
@@ -71,11 +75,11 @@ export default function CustomCursor() {
     <>
       <div
         ref={cursorRef}
-        className="fixed w-[10px] h-[10px] bg-[#d4af37] rounded-full pointer-events-none z-[10000] mix-blend-difference"
+        className="fixed w-[10px] h-[10px] bg-[#d4af37] rounded-full pointer-events-none z-[10000] mix-blend-difference hidden md:block"
       />
       <div
         ref={followerRef}
-        className="fixed w-[40px] h-[40px] border border-[#d4af37] rounded-full pointer-events-none z-[9999] transition-transform duration-150"
+        className="fixed w-[40px] h-[40px] border border-[#d4af37] rounded-full pointer-events-none z-[9999] transition-transform duration-150 hidden md:block"
       />
     </>
   );

@@ -1,7 +1,7 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import { LogOut, LayoutDashboard } from 'lucide-react';
+import { useRouter, usePathname } from 'next/navigation';
+import { LogOut, LayoutDashboard, ShoppingBasket, Receipt } from 'lucide-react';
 
 interface AdminShellProps {
   children: React.ReactNode;
@@ -9,6 +9,7 @@ interface AdminShellProps {
 
 export default function AdminShell({ children }: AdminShellProps) {
   const router = useRouter();
+  const pathname = usePathname();
 
   const handleLogout = async () => {
     await fetch('/api/admin/logout', { method: 'POST' });
@@ -16,12 +17,17 @@ export default function AdminShell({ children }: AdminShellProps) {
     router.refresh();
   };
 
+  const navLinks = [
+    { href: '/admin', label: 'Bazar', icon: ShoppingBasket },
+    { href: '/admin/expenses', label: 'Expenses', icon: Receipt },
+  ];
+
   return (
     <div className="min-h-screen bg-[#050505]">
-      {/* Admin top bar — matches site nav style */}
+      {/* Admin top bar */}
       <nav className="fixed top-0 w-full z-40 border-b border-white/8 bg-[#050505]/95 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
-          {/* Brand + breadcrumb */}
+          {/* Brand + breadcrumb + nav links */}
           <div className="flex items-center gap-4">
             <a href="/" className="font-serif font-bold text-xl text-white hover:text-[#d4af37] transition-colors">
               R &amp; S
@@ -30,6 +36,24 @@ export default function AdminShell({ children }: AdminShellProps) {
             <div className="flex items-center gap-1.5 text-[#d4af37]">
               <LayoutDashboard size={13} />
               <span className="text-xs tracking-[0.15em] uppercase font-medium">Admin</span>
+            </div>
+            <span className="text-white/15 hidden sm:block">/</span>
+            {/* Dashboard Nav Links */}
+            <div className="hidden sm:flex items-center gap-1">
+              {navLinks.map(({ href, label, icon: Icon }) => {
+                const isActive = pathname === href;
+                return (
+                  <a key={href} href={href}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                      isActive
+                        ? 'bg-[#d4af37]/15 text-[#d4af37] border border-[#d4af37]/20'
+                        : 'text-white/40 hover:text-white/70 hover:bg-white/5'
+                    }`}>
+                    <Icon size={12} />
+                    {label}
+                  </a>
+                );
+              })}
             </div>
           </div>
 
