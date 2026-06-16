@@ -3,23 +3,103 @@
 :root {
   --bg: #030d0a;
   --bg-secondary: #051c15;
+  --bg-tertiary: #041a15;
   --text: #ffffff;
   --text-muted: rgba(255, 255, 255, 0.65);
+  --text-subtle: rgba(255, 255, 255, 0.5);
+  --text-faint: rgba(255, 255, 255, 0.2);
   --accent: #d4af37;
+  --accent-dark: #aa8010;
   --accent-glow: rgba(212, 175, 55, 0.5);
-  
+
   --glass: rgba(5, 28, 21, 0.25);
   --glass-border: rgba(212, 175, 55, 0.15);
   --glass-high: rgba(5, 28, 21, 0.4);
-  
+
+  --overlay: rgba(3, 13, 10, 0.2);
+  --overlay-heavy: rgba(3, 13, 10, 0.9);
+  --shadow: rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 25px 60px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(0, 0, 0, 0.4);
+  --border: rgba(255, 255, 255, 0.1);
+  --border-accent: rgba(212, 175, 55, 0.2);
+
+  --gradient-text-from: #cfc09f;
+  --gradient-text-via: #ffecb3;
+  --gradient-text-to: #b3a074;
+  --gradient-glow: rgba(212, 175, 55, 0.025);
+
+  --nav-bg: rgba(5, 28, 21, 0.25);
+  --mobile-menu-bg: #050505;
+
   --font-main: var(--font-inter);
   --font-serif: var(--font-playfair);
+}
+
+/* Allow nested data-theme="dark" to force dark vars (e.g. admin pages) */
+[data-theme="dark"] {
+  --bg: #030d0a;
+  --bg-secondary: #051c15;
+  --bg-tertiary: #041a15;
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.65);
+  --text-subtle: rgba(255, 255, 255, 0.5);
+  --text-faint: rgba(255, 255, 255, 0.2);
+  --accent: #d4af37;
+  --accent-dark: #aa8010;
+  --accent-glow: rgba(212, 175, 55, 0.5);
+  --glass: rgba(5, 28, 21, 0.25);
+  --glass-border: rgba(212, 175, 55, 0.15);
+  --glass-high: rgba(5, 28, 21, 0.4);
+  --overlay: rgba(3, 13, 10, 0.2);
+  --overlay-heavy: rgba(3, 13, 10, 0.9);
+  --shadow: rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 25px 60px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(0, 0, 0, 0.4);
+  --border: rgba(255, 255, 255, 0.1);
+  --border-accent: rgba(212, 175, 55, 0.2);
+  --gradient-text-from: #cfc09f;
+  --gradient-text-via: #ffecb3;
+  --gradient-text-to: #b3a074;
+  --gradient-glow: rgba(212, 175, 55, 0.025);
+  --nav-bg: rgba(5, 28, 21, 0.25);
+  --mobile-menu-bg: #050505;
+}
+
+[data-theme="light"] {
+  --bg: #f8f5f0;
+  --bg-secondary: #ede8e0;
+  --bg-tertiary: #e5dfd6;
+  --text: #1c1917;
+  --text-muted: rgba(28, 25, 23, 0.65);
+  --text-subtle: rgba(28, 25, 23, 0.45);
+  --text-faint: rgba(28, 25, 23, 0.15);
+  --accent: #b8960f;
+  --accent-dark: #8a6f08;
+  --accent-glow: rgba(184, 150, 15, 0.4);
+
+  --glass: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(184, 150, 15, 0.2);
+  --glass-high: rgba(255, 255, 255, 0.75);
+
+  --overlay: rgba(248, 245, 240, 0.15);
+  --overlay-heavy: rgba(248, 245, 240, 0.9);
+  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 25px 60px rgba(0, 0, 0, 0.1), inset 0 0 20px rgba(0, 0, 0, 0.05);
+  --border: rgba(0, 0, 0, 0.08);
+  --border-accent: rgba(184, 150, 15, 0.25);
+
+  --gradient-text-from: #8a6f08;
+  --gradient-text-via: #b8960f;
+  --gradient-text-to: #6b5506;
+  --gradient-glow: rgba(184, 150, 15, 0.06);
+
+  --nav-bg: rgba(255, 255, 255, 0.7);
+  --mobile-menu-bg: #f8f5f0;
 }
 
 @theme inline {
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
-  
+
   --color-bg: var(--bg);
   --color-accent: var(--accent);
 }
@@ -41,6 +121,7 @@ body {
   font-family: var(--font-main);
   overflow-x: hidden;
   line-height: 1.6;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .noise {
@@ -56,27 +137,33 @@ body {
   mix-blend-mode: overlay;
 }
 
+[data-theme="light"] .noise {
+  opacity: 0.03;
+  mix-blend-mode: multiply;
+}
+
 /* Utilities */
 .glass-panel {
   background: var(--glass);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
+  transition: background 0.4s ease, border-color 0.4s ease;
 }
 
 .text-gradient {
-  background: linear-gradient(to right, #cfc09f, #ffecb3, #b3a074);
+  background: linear-gradient(to right, var(--gradient-text-from), var(--gradient-text-via), var(--gradient-text-to));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-/* --- Components (Mobile Defaults) --- */
-
-/* Add any truly global utility defaults here if needed, 
-   otherwise rely on Tailwind classes in components. */
 @layer utilities {
   .text-shadow {
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
   }
+}
+
+[data-theme="light"] .text-shadow {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }

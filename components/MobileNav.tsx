@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
   { href: '#couple', label: 'The Couple' },
@@ -85,46 +86,50 @@ export default function MobileNav() {
 
   return (
     <>
-      <button 
-        onClick={toggleMenu} 
-        className="fixed top-6 right-6 z-[200] w-12 h-12 flex items-center justify-center bg-white/5 backdrop-blur-xl rounded-full border border-white/10 text-white lg:hidden active:scale-90 transition-transform duration-300"
-        aria-label="Toggle Menu"
-      >
-        <AnimatePresence mode="wait">
-          {isOpen ? (
-            <motion.div
-              key="close"
-              initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <X size={20} />
-            </motion.div>
-          ) : (
-            <motion.div
-              key="menu"
-              initial={{ rotate: 90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: -90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Menu size={20} />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </button>
+      {/* Mobile top bar: theme toggle + hamburger */}
+      <div className="fixed top-6 right-6 z-[200] flex items-center gap-3 lg:hidden">
+        <ThemeToggle />
+        <button
+          onClick={toggleMenu}
+          className="w-12 h-12 flex items-center justify-center bg-[var(--bg)]/50 backdrop-blur-xl rounded-full border border-[var(--border)] text-[var(--text)] active:scale-90 transition-transform duration-300"
+          aria-label="Toggle Menu"
+        >
+          <AnimatePresence mode="wait">
+            {isOpen ? (
+              <motion.div
+                key="close"
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <X size={20} />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="menu"
+                initial={{ rotate: 90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: -90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Menu size={20} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </button>
+      </div>
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             variants={menuVariants}
             initial="initial"
             animate="animate"
             exit="exit"
-            className="fixed inset-0 z-[150] bg-[#050505] origin-top flex flex-col justify-center items-center lg:hidden px-4"
+            className="fixed inset-0 z-[150] bg-[var(--mobile-menu-bg)] origin-top flex flex-col justify-center items-center lg:hidden px-4"
           >
-            <motion.div 
+            <motion.div
               variants={containerVars}
               initial="initial"
               animate="open"
@@ -137,7 +142,7 @@ export default function MobileNav() {
                     <a
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      className="text-5xl font-playfair font-medium text-white/90 hover:text-[#d4af37] transition-colors block py-2"
+                      className="text-5xl font-playfair font-medium text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors block py-2"
                     >
                       {link.label}
                     </a>
@@ -145,8 +150,8 @@ export default function MobileNav() {
                 </div>
               ))}
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.5, transition: { delay: 0.8, duration: 0.5 } }}
               exit={{ opacity: 0 }}

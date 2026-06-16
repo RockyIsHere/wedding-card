@@ -21,7 +21,7 @@ export default function ScrollAnimations() {
           y: 0,
           opacity: 1,
           filter: 'blur(0px)',
-          color: '#d4af37',
+          color: 'var(--accent)',
           duration: 1.5,
           scrollTrigger: {
             trigger: text as HTMLElement,

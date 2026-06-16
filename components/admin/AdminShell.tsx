@@ -23,7 +23,7 @@ export default function AdminShell({ children }: AdminShellProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-[#050505]">
+    <div className="min-h-screen bg-[#050505] text-white" data-theme="dark">
       {/* Admin top bar */}
       <nav className="fixed top-0 w-full z-40 border-b border-white/8 bg-[#050505]/95 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
