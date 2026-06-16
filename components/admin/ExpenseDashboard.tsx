@@ -514,7 +514,7 @@ export default function ExpenseDashboard() {
   const t = TRANSLATIONS[lang];
   const [items, setItems] = useState<ExpenseItem[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeEvent, setActiveEvent] = useState<EventType>('wedding');
+  const [activeEvent, setActiveEvent] = useState<EventType>('engagement');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<'all' | ExpenseCategory>('all');
   const [selectedStatus, setSelectedStatus] = useState<'all' | PaymentStatus>('all');
