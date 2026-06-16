@@ -626,7 +626,7 @@ export default function GroceryDashboard() {
               <div className="space-y-2 max-h-[60vh] overflow-y-auto pr-1">
                 {filteredItems.filter(i => i.active !== false).map(item => (
                   <div key={item.id} onClick={() => toggleBought(item)}
-                    className={`flex items-center justify-between p-4 rounded-xl border transition-all cursor-pointer select-none ${
+                    className={`flex items-center justify-between p-4 rounded-xl border transition-all cursor-pointer ${
                       item.bought
                         ? 'border-emerald-400/30 bg-emerald-400/5'
                         : 'border-white/8 bg-white/3 hover:border-[#d4af37]/30'
@@ -640,7 +640,15 @@ export default function GroceryDashboard() {
                         {item.bengaliName && (
                           <p className="text-[10px] text-white/20 truncate">{item.bengaliName}</p>
                         )}
-                        <input type="text" placeholder="Qty" value={item.qty || ''} onChange={e => updateQty(item.id, e.target.value)} className="text-[10px] text-white/30 bg-transparent border-b border-white/30 focus:border-white/70 outline-none" /> · {t[item.category]}
+                        <div onClick={e => e.stopPropagation()} onMouseDown={e => e.stopPropagation()} onPointerDown={e => e.stopPropagation()} className="inline-flex items-center gap-1">
+                          <input type="text" placeholder="Qty" value={item.qty || ''}
+                            onClick={e => e.stopPropagation()}
+                            onMouseDown={e => e.stopPropagation()}
+                            onPointerDown={e => e.stopPropagation()}
+                            onChange={e => { e.stopPropagation(); updateQty(item.id, e.target.value); }}
+                            className="text-[11px] text-white/60 bg-white/5 border border-white/15 rounded px-2 py-0.5 focus:border-[#d4af37]/50 focus:text-white outline-none w-16 select-text" />
+                          <span className="text-[10px] text-white/30">· {t[item.category]}</span>
+                        </div>
                       </div>
                     </div>
                     <div className="flex items-center gap-2 ml-2" onClick={e => e.stopPropagation()}>
