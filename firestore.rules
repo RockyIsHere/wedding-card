@@ -10,5 +10,9 @@ service cloud.firestore {
     match /expenses/{itemId} {
       allow read, write: if true;
     }
+    // menuItems — same access model as groceryItems
+    match /menuItems/{itemId} {
+      allow read, write: if true;
+    }
   }
 }
