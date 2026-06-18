@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter, usePathname } from 'next/navigation';
-import { LogOut, LayoutDashboard, ShoppingBasket, Receipt, UtensilsCrossed } from 'lucide-react';
+import { LogOut, LayoutDashboard, ShoppingBasket, Receipt, UtensilsCrossed, Palette } from 'lucide-react';
 
 interface AdminShellProps {
   children: React.ReactNode;
@@ -21,6 +21,7 @@ export default function AdminShell({ children }: AdminShellProps) {
     { href: '/admin', label: 'Bazar', icon: ShoppingBasket },
     { href: '/admin/expenses', label: 'Expenses', icon: Receipt },
     { href: '/admin/menu', label: 'Food Menu', icon: UtensilsCrossed },
+    { href: '/admin/content', label: 'Content', icon: Palette },
   ];
 
   return (

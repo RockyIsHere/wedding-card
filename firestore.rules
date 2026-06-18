@@ -14,5 +14,9 @@ service cloud.firestore {
     match /menuItems/{itemId} {
       allow read, write: if true;
     }
+    // weddingContent — public read (wedding page), open write (admin is cookie-gated)
+    match /weddingContent/{docId} {
+      allow read, write: if true;
+    }
   }
 }
