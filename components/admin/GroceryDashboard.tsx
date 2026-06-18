@@ -50,6 +50,7 @@ interface GroceryItem {
   expected: number;
   actual: number;
   bought: boolean;
+  received?: boolean; // received but amount not entered yet
   active: boolean;   // false = crossed-out in original list
   notes: string;
   event: EventType;
@@ -62,7 +63,7 @@ const TRANSLATIONS = {
   en: {
     appTitle: 'Bazar Dashboard', subTitle: 'Grocery & Budget Tracker · Live via Firebase',
     searchPlaceholder: 'Search items, quantities, categories...',
-    all: 'All Status', pending: 'Pending', bought: 'Purchased',
+    all: 'All Status', pending: 'Pending', received: 'Amt. Pending', bought: 'Purchased',
     allCategories: 'All', groceries: 'Grocery & Spices', fresh: 'Fresh & Meats',
     utensils: 'Utensils', misc: 'Miscellaneous',
     totalExpected: 'Total Budget', totalActual: 'Amount Spent',
@@ -87,7 +88,7 @@ const TRANSLATIONS = {
   bn: {
     appTitle: 'বাজার ড্যাশবোর্ড', subTitle: 'মুদি তালিকা ও বাজেট ট্র্যাকার · Firebase লাইভ',
     searchPlaceholder: 'আইটেম, পরিমাণ বা ক্যাটাগরি খুঁজুন...',
-    all: 'সব', pending: 'বাকি', bought: 'কেনা হয়েছে',
+    all: 'সব', pending: 'বাকি', received: 'পরিমাণ বাকি', bought: 'কেনা হয়েছে',
     allCategories: 'সব', groceries: 'মুদি ও মসলা', fresh: 'কাঁচা বাজার',
     utensils: 'বাসনপত্র', misc: 'অন্যান্য',
     totalExpected: 'মোট বাজেট', totalActual: 'মোট খরচ',
@@ -298,7 +299,7 @@ export default function GroceryDashboard() {
 
   const [searchTerm, setSearchTerm]             = useState('');
   const [selectedCategory, setSelectedCategory] = useState<'all' | Category>('all');
-  const [selectedStatus, setSelectedStatus]     = useState<'all' | 'pending' | 'bought'>('all');
+  const [selectedStatus, setSelectedStatus]     = useState<'all' | 'pending' | 'received' | 'bought'>('all');
   const [showCrossedOut, setShowCrossedOut]     = useState(false);
   const [sortBy, setSortBy]                     = useState<keyof GroceryItem>('serial');
   const [sortOrder, setSortOrder]               = useState<'asc' | 'desc'>('asc');
@@ -328,13 +329,18 @@ export default function GroceryDashboard() {
 
   // ─── Firebase CRUD helpers ────────────────────────────────────────────────────
   const toggleBought = useCallback(async (item: GroceryItem) => {
-    const newBought = !item.bought;
-    const newActual = newBought && item.actual === 0 ? item.expected : item.actual;
-    await updateDoc(doc(db, 'groceryItems', item.id), {
-      bought: newBought,
-      actual: newActual,
-      updatedAt: new Date(),
-    });
+    // Cycle: pending → received → purchased → pending
+    if (item.bought) {
+      // purchased → pending
+      await updateDoc(doc(db, 'groceryItems', item.id), { bought: false, received: false, updatedAt: new Date() });
+    } else if (item.received) {
+      // received → purchased (fill actual from expected if empty)
+      const newActual = item.actual === 0 ? item.expected : item.actual;
+      await updateDoc(doc(db, 'groceryItems', item.id), { bought: true, received: false, actual: newActual, updatedAt: new Date() });
+    } else {
+      // pending → received (clear actual since amount not yet known)
+      await updateDoc(doc(db, 'groceryItems', item.id), { received: true, bought: false, actual: 0, updatedAt: new Date() });
+    }
   }, []);
 
   const updatePrice = useCallback(async (id: string, field: 'expected' | 'actual', value: string) => {
@@ -376,8 +382,8 @@ export default function GroceryDashboard() {
 
   const resetAll = useCallback(async () => {
     const batch = writeBatch(db);
-    items.filter(i => i.bought && i.event === activeEvent).forEach(item => {
-      batch.update(doc(db, 'groceryItems', item.id), { bought: false, updatedAt: new Date() });
+    items.filter(i => (i.bought || i.received) && i.event === activeEvent).forEach(item => {
+      batch.update(doc(db, 'groceryItems', item.id), { bought: false, received: false, updatedAt: new Date() });
     });
     await batch.commit();
   }, [items, activeEvent]);
@@ -440,7 +446,10 @@ export default function GroceryDashboard() {
            item.serial.includes(s) ||
            (item.notes && item.notes.toLowerCase().includes(s))) &&
           (selectedCategory === 'all' || item.category === selectedCategory) &&
-          (selectedStatus === 'all' || (selectedStatus === 'pending' && !item.bought) || (selectedStatus === 'bought' && item.bought))
+          (selectedStatus === 'all' ||
+            (selectedStatus === 'pending' && !item.bought && !item.received) ||
+            (selectedStatus === 'received' && item.received && !item.bought) ||
+            (selectedStatus === 'bought' && item.bought))
         );
       })
       .sort((a, b) => {
@@ -681,10 +690,11 @@ export default function GroceryDashboard() {
                     <option key={c} value={c} className="bg-[#0a0a0a]">{t[c]}</option>
                   ))}
                 </select>
-                <select value={selectedStatus} onChange={e => setSelectedStatus(e.target.value as 'all' | 'pending' | 'bought')}
+                <select value={selectedStatus} onChange={e => setSelectedStatus(e.target.value as 'all' | 'pending' | 'received' | 'bought')}
                   className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white outline-none focus:border-[#d4af37]/40 transition-colors">
                   <option value="all" className="bg-[#0a0a0a]">{t.all}</option>
                   <option value="pending" className="bg-[#0a0a0a]">{t.pending}</option>
+                  <option value="received" className="bg-[#0a0a0a]">{t.received}</option>
                   <option value="bought" className="bg-[#0a0a0a]">{t.bought}</option>
                 </select>
                 {/* Crossed-out toggle */}
@@ -771,10 +781,12 @@ export default function GroceryDashboard() {
                                 className={`flex items-center gap-1 px-2 py-1 rounded-md text-[9px] font-bold uppercase tracking-wider transition-all ${
                                   item.bought
                                     ? 'bg-emerald-400/15 text-emerald-400 border border-emerald-400/20'
-                                    : 'border border-white/10 text-white/40 hover:border-[#d4af37]/30 hover:text-[#d4af37]'
+                                    : item.received
+                                      ? 'bg-sky-400/15 text-sky-400 border border-sky-400/20'
+                                      : 'border border-white/10 text-white/40 hover:border-[#d4af37]/30 hover:text-[#d4af37]'
                                 }`}>
-                                {item.bought ? <CheckCircle size={8} /> : <Circle size={8} />}
-                                {item.bought ? t.bought : t.pending}
+                                {item.bought ? <CheckCircle size={8} /> : item.received ? <CheckCircle size={8} className="opacity-60" /> : <Circle size={8} />}
+                                {item.bought ? t.bought : item.received ? t.received : t.pending}
                               </button>
                             )}
                             <div className="flex items-center gap-1">
@@ -887,10 +899,12 @@ export default function GroceryDashboard() {
                                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all ${
                                     item.bought
                                       ? 'bg-emerald-400/15 text-emerald-400 border border-emerald-400/20'
-                                      : 'border border-white/10 text-white/30 hover:border-[#d4af37]/30 hover:text-[#d4af37]'
+                                      : item.received
+                                        ? 'bg-sky-400/15 text-sky-400 border border-sky-400/20'
+                                        : 'border border-white/10 text-white/30 hover:border-[#d4af37]/30 hover:text-[#d4af37]'
                                   }`}>
-                                  {item.bought ? <CheckCircle size={10} /> : <Circle size={10} />}
-                                  {item.bought ? t.bought : t.pending}
+                                  {item.bought ? <CheckCircle size={10} /> : item.received ? <CheckCircle size={10} className="opacity-60" /> : <Circle size={10} />}
+                                  {item.bought ? t.bought : item.received ? t.received : t.pending}
                                 </button>
                               )}
                             </td>

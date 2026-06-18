@@ -61,10 +61,12 @@ function getBalance(item: ExpenseItem): number {
   return item.actual - getTotalPaid(item);
 }
 
-type PaymentStatus = 'unpaid' | 'partial' | 'paid';
+type PaymentStatus = 'unpaid' | 'received' | 'partial' | 'paid';
 
 function getPaymentStatus(item: ExpenseItem): PaymentStatus {
   const totalPaid = getTotalPaid(item);
+  // Received = item delivered but amount not yet entered
+  if (totalPaid <= 0 && item.actual <= 0) return 'received';
   if (totalPaid <= 0) return 'unpaid';
   if (totalPaid >= item.actual) return 'paid';
   return 'partial';
@@ -75,7 +77,7 @@ const TRANSLATIONS = {
   en: {
     appTitle: 'Expense Dashboard', subTitle: 'Expense & Payment Tracker · Live via Firebase',
     searchPlaceholder: 'Search expenses, categories...',
-    all: 'All Status', unpaid: 'Unpaid', partial: 'Partial', paid: 'Paid',
+    all: 'All Status', unpaid: 'Unpaid', received: 'Received – No Amount', partial: 'Partial', paid: 'Paid',
     allCategories: 'All Categories',
     venue: 'Venue', catering: 'Catering', decor: 'Decor & Flowers',
     photography: 'Photography', attire: 'Attire & Jewellery',
@@ -100,7 +102,7 @@ const TRANSLATIONS = {
   bn: {
     appTitle: 'ব্যয় ড্যাশবোর্ড', subTitle: 'ব্যয় ও পেমেন্ট ট্র্যাকার · Firebase লাইভ',
     searchPlaceholder: 'ব্যয়, ক্যাটেগরি খুঁজুন...',
-    all: 'সব', unpaid: 'বাকি', partial: 'আংশিক', paid: 'পরিশোধিত',
+    all: 'সব', unpaid: 'বাকি', received: 'পাওয়া গেছে – পরিমাণ নেই', partial: 'আংশিক', paid: 'পরিশোধিত',
     allCategories: 'সব ক্যাটেগরি',
     venue: 'স্থান', catering: 'ক্যাটারিং', decor: 'সাজসজ্জা',
     photography: 'ফটোগ্রাফি', attire: 'পোশাক ও গহনা',
@@ -135,15 +137,17 @@ const CATEGORY_COLORS: Record<ExpenseCategory, string> = {
 };
 
 const STATUS_COLORS: Record<PaymentStatus, string> = {
-  unpaid:  'border-white/15 text-white/40',
-  partial: 'border-amber-400/30 text-amber-400 bg-amber-400/10',
-  paid:    'border-emerald-400/30 text-emerald-400 bg-emerald-400/10',
+  unpaid:   'border-white/15 text-white/40',
+  received: 'border-sky-400/30 text-sky-400 bg-sky-400/10',
+  partial:  'border-amber-400/30 text-amber-400 bg-amber-400/10',
+  paid:     'border-emerald-400/30 text-emerald-400 bg-emerald-400/10',
 };
 
 const STATUS_DOT: Record<PaymentStatus, string> = {
-  unpaid:  'bg-white/20',
-  partial: 'bg-amber-400',
-  paid:    'bg-emerald-400',
+  unpaid:   'bg-white/20',
+  received: 'bg-sky-400',
+  partial:  'bg-amber-400',
+  paid:     'bg-emerald-400',
 };
 
 // ─── Confirm Modal ──────────────────────────────────────────────────────────────
@@ -568,7 +572,7 @@ export default function ExpenseDashboard() {
       if (sortField === 'totalPaid') cmp = getTotalPaid(a) - getTotalPaid(b);
       if (sortField === 'balance')   cmp = getBalance(a) - getBalance(b);
       if (sortField === 'status') {
-        const order: Record<PaymentStatus, number> = { unpaid: 0, partial: 1, paid: 2 };
+        const order: Record<PaymentStatus, number> = { unpaid: 0, received: 1, partial: 2, paid: 3 };
         cmp = order[getPaymentStatus(a)] - order[getPaymentStatus(b)];
       }
       return sortDir === 'asc' ? cmp : -cmp;
@@ -835,6 +839,7 @@ export default function ExpenseDashboard() {
           className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white outline-none focus:border-[#d4af37]/40 transition-colors">
           <option value="all" className="bg-[#0a0a0a]">{t.all}</option>
           <option value="unpaid" className="bg-[#0a0a0a]">{t.unpaid}</option>
+          <option value="received" className="bg-[#0a0a0a]">{t.received}</option>
           <option value="partial" className="bg-[#0a0a0a]">{t.partial}</option>
           <option value="paid" className="bg-[#0a0a0a]">{t.paid}</option>
         </select>
@@ -959,7 +964,7 @@ export default function ExpenseDashboard() {
                         <button onClick={() => setPaymentItemId(item.id)}
                           className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-medium border transition-all ${STATUS_COLORS[status]}`}>
                           <span className={`w-1.5 h-1.5 rounded-full ${STATUS_DOT[status]}`} />
-                          {status === 'partial' ? t.partial : status === 'paid' ? t.paid : t.unpaid}
+                          {status === 'paid' ? t.paid : status === 'partial' ? t.partial : status === 'received' ? t.received : t.unpaid}
                         </button>
                       </td>
                       <td className="px-4 py-3.5" onClick={e => e.stopPropagation()}>
