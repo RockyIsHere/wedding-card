@@ -118,23 +118,47 @@ export default function GooglePhotosPicker({ onUploaded, storagePath, label = 'G
             const itemsRes = await fetch(`${PICKER_API}/mediaItems?sessionId=${sessionId}`, {
               headers: { Authorization: `Bearer ${accessTokenRef.current}` },
             });
-            if (!itemsRes.ok) throw new Error('Failed to fetch selected photos');
+            if (!itemsRes.ok) throw new Error(`Failed to fetch selected photos: ${itemsRes.status}`);
             const itemsData = await itemsRes.json();
+
+            console.log('[GooglePhotosPicker] mediaItems response:', JSON.stringify(itemsData, null, 2));
+
             const mediaItem = itemsData.mediaItems?.[0];
             if (!mediaItem) throw new Error('No photo selected');
 
-            // 5. Download the image blob
+            // The Photos Picker API returns: mediaItem.mediaFile.baseUrl
+            // Append =d for full-resolution download
+            const baseUrl: string =
+              mediaItem.mediaFile?.baseUrl ??
+              mediaItem.baseUrl ??          // fallback field name
+              mediaItem.productUrl;         // last resort: Google Photos web URL
+
+            if (!baseUrl) throw new Error('Could not determine photo URL from API response');
+
+            const photoUrl = baseUrl.includes('=') ? baseUrl : `${baseUrl}=d`;
+
+            // 5. Download via server-side proxy (avoids CORS)
             setStatus('downloading');
-            const photoUrl = `${mediaItem.mediaFile.baseUrl}=d`; // =d suffix for download
-            const imgRes = await fetch(photoUrl);
-            if (!imgRes.ok) throw new Error('Failed to download photo from Google Photos');
-            const blob = await imgRes.blob();
+            const proxyRes = await fetch('/api/google-photos-proxy', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${accessTokenRef.current}`,
+              },
+              body: JSON.stringify({ url: photoUrl }),
+            });
+            if (!proxyRes.ok) {
+              const errData = await proxyRes.json().catch(() => ({}));
+              throw new Error(`Download failed: ${errData.error ?? proxyRes.status}`);
+            }
+            const blob = await proxyRes.blob();
 
             // 6. Upload to Firebase Storage
             setStatus('uploading');
-            const fileName = `${Date.now()}_google_photo.jpg`;
+            const ext = blob.type.includes('png') ? 'png' : 'jpg';
+            const fileName = `${Date.now()}_google_photo.${ext}`;
             const sRef = storageRef(storage, `wedding-cms/${storagePath}/${fileName}`);
-            await uploadBytes(sRef, blob, { contentType: 'image/jpeg' });
+            await uploadBytes(sRef, blob, { contentType: blob.type || 'image/jpeg' });
             const downloadUrl = await getDownloadURL(sRef);
 
             onUploaded(downloadUrl);
