@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import { doc, getDoc, updateDoc, setDoc } from 'firebase/firestore';
 import { ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { db, storage } from '@/lib/firebase';
 import type { WeddingContent, GalleryPhoto, WeddingEvent, PlaylistTrack } from '@/lib/useWeddingContent';
@@ -229,9 +229,11 @@ function PhotoUploader({
 function CoupleTab({
   data,
   onChange,
+  onPhotoUploaded,
 }: {
   data: WeddingContent;
   onChange: (patch: Partial<WeddingContent>) => void;
+  onPhotoUploaded: (patch: Partial<WeddingContent>) => void;
 }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -247,7 +249,7 @@ function CoupleTab({
           </div>
           <PhotoUploader
             currentUrl={data.groomPhoto}
-            onUploaded={(url) => onChange({ groomPhoto: url })}
+            onUploaded={(url) => onPhotoUploaded({ groomPhoto: url })}
             path="couple/groom"
             label="Groom Photo"
           />
@@ -266,7 +268,7 @@ function CoupleTab({
           </div>
           <PhotoUploader
             currentUrl={data.bridePhoto}
-            onUploaded={(url) => onChange({ bridePhoto: url })}
+            onUploaded={(url) => onPhotoUploaded({ bridePhoto: url })}
             path="couple/bride"
             label="Bride Photo"
           />
@@ -294,9 +296,11 @@ function CoupleTab({
 function GalleryTab({
   data,
   onChange,
+  onPhotoUploaded,
 }: {
   data: WeddingContent;
   onChange: (patch: Partial<WeddingContent>) => void;
+  onPhotoUploaded: (patch: Partial<WeddingContent>) => void;
 }) {
   const gallery = data.gallery ?? [];
 
@@ -304,6 +308,12 @@ function GalleryTab({
     const updated = [...gallery];
     updated[i] = { ...updated[i], ...patch };
     onChange({ gallery: updated });
+  };
+
+  const updateSlotPhoto = (i: number, url: string) => {
+    const updated = [...gallery];
+    updated[i] = { ...updated[i], url };
+    onPhotoUploaded({ gallery: updated });
   };
 
   const addSlot = () => {
@@ -335,7 +345,7 @@ function GalleryTab({
             <div className="space-y-3">
               <PhotoUploader
                 currentUrl={photo.url}
-                onUploaded={(url) => updateSlot(i, { url })}
+                onUploaded={(url) => updateSlotPhoto(i, url)}
                 path={`gallery/slot-${i}`}
                 label="Image"
               />
@@ -382,9 +392,11 @@ function GalleryTab({
 function EventsTab({
   data,
   onChange,
+  onPhotoUploaded,
 }: {
   data: WeddingContent;
   onChange: (patch: Partial<WeddingContent>) => void;
+  onPhotoUploaded: (patch: Partial<WeddingContent>) => void;
 }) {
   const events: WeddingEvent[] = data.events ?? DEFAULT_CONTENT.events;
 
@@ -392,6 +404,12 @@ function EventsTab({
     const updated = [...events];
     updated[i] = { ...updated[i], ...patch };
     onChange({ events: updated });
+  };
+
+  const updateEventPhoto = (i: number, photo: string) => {
+    const updated = [...events];
+    updated[i] = { ...updated[i], photo };
+    onPhotoUploaded({ events: updated });
   };
 
   const eventNames = ['Event 1 — The Holy Union', 'Event 2 — The Reception'];
@@ -443,7 +461,7 @@ function EventsTab({
             <div>
               <PhotoUploader
                 currentUrl={ev.photo}
-                onUploaded={(url) => updateEvent(i, { photo: url })}
+                onUploaded={(url) => updateEventPhoto(i, url)}
                 path={`events/event-${i}`}
                 label="Event Photo"
               />
@@ -670,6 +688,22 @@ export default function ContentDashboard() {
     setFormData((prev) => ({ ...prev, ...patch }));
   }, []);
 
+  // Auto-save a photo URL field immediately to Firestore when a photo is uploaded.
+  // This means photos appear on the wedding page right away without manual Save.
+  const handlePhotoUploaded = useCallback(async (patch: Partial<WeddingContent>) => {
+    setFormData((prev) => ({ ...prev, ...patch }));
+    setSaveStatus('saving');
+    try {
+      await setDoc(doc(db, 'weddingContent', 'main'), patch, { merge: true });
+      setSaveStatus('saved');
+      setTimeout(() => setSaveStatus('idle'), 2000);
+    } catch (err) {
+      console.error('Auto-save error:', err);
+      setSaveStatus('error');
+      setTimeout(() => setSaveStatus('idle'), 3000);
+    }
+  }, []);
+
   const handleSave = async () => {
     setSaveStatus('saving');
     try {
@@ -677,10 +711,9 @@ export default function ContentDashboard() {
       setSaveStatus('saved');
       setTimeout(() => setSaveStatus('idle'), 2500);
     } catch (err) {
-      // Doc might not exist yet — try setDoc equivalent via updateDoc's error
+      // Doc might not exist yet — use setDoc with merge
       try {
-        const { setDoc } = await import('firebase/firestore');
-        await setDoc(doc(db, 'weddingContent', 'main'), { ...formData });
+        await setDoc(doc(db, 'weddingContent', 'main'), { ...formData }, { merge: true });
         setSaveStatus('saved');
         setTimeout(() => setSaveStatus('idle'), 2500);
       } catch {
@@ -756,12 +789,12 @@ export default function ContentDashboard() {
 
       {/* Tab content */}
       <div>
-        {activeTab === 'couple' && <CoupleTab data={formData} onChange={handleChange} />}
-        {activeTab === 'gallery' && <GalleryTab data={formData} onChange={handleChange} />}
-        {activeTab === 'events' && <EventsTab data={formData} onChange={handleChange} />}
-        {activeTab === 'travel' && <TravelTab data={formData} onChange={handleChange} />}
+        {activeTab === 'couple'   && <CoupleTab   data={formData} onChange={handleChange} onPhotoUploaded={handlePhotoUploaded} />}
+        {activeTab === 'gallery'  && <GalleryTab  data={formData} onChange={handleChange} onPhotoUploaded={handlePhotoUploaded} />}
+        {activeTab === 'events'   && <EventsTab   data={formData} onChange={handleChange} onPhotoUploaded={handlePhotoUploaded} />}
+        {activeTab === 'travel'   && <TravelTab   data={formData} onChange={handleChange} />}
         {activeTab === 'playlist' && <PlaylistTab data={formData} onChange={handleChange} />}
-        {activeTab === 'rsvp' && <RsvpTab data={formData} onChange={handleChange} />}
+        {activeTab === 'rsvp'     && <RsvpTab     data={formData} onChange={handleChange} />}
       </div>
 
       {/* Floating save at bottom on mobile */}
