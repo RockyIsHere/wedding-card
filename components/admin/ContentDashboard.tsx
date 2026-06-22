@@ -9,6 +9,7 @@ import {
   Users, Image as ImageIcon, CalendarDays, Plane, Music, Mail,
   Loader2, Check, Upload, Plus, Trash2, Palette, ChevronRight,
 } from 'lucide-react';
+import GooglePhotosPicker from '@/components/admin/GooglePhotosPicker';
 
 // ─── Default data ────────────────────────────────────────────────────────────
 
@@ -203,13 +204,22 @@ function PhotoUploader({
           if (e.target.files?.[0]) handleFile(e.target.files[0]);
         }}
       />
-      {currentUrl && (
-        <Input
-          value={currentUrl}
-          onChange={onUploaded}
-          placeholder="Or paste URL directly"
+      {/* Google Photos + URL row */}
+      <div className="flex items-center gap-2">
+        <GooglePhotosPicker
+          onUploaded={onUploaded}
+          storagePath={path}
+          label="Google Photos"
         />
-      )}
+        <span className="text-white/15 text-xs">or</span>
+        <input
+          type="text"
+          value={currentUrl}
+          onChange={(e) => onUploaded(e.target.value)}
+          placeholder="Paste image URL…"
+          className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-xs text-white placeholder-white/20 focus:outline-none focus:border-[#d4af37]/40 transition-all"
+        />
+      </div>
     </div>
   );
 }

@@ -15,7 +15,7 @@ export default function HeroAnimation({ active }: { active: boolean }) {
     const tl = gsap.timeline({ delay: 0.2 });
 
     gsap.set(elementsRef.current, { y: 40, opacity: 0 });
-    gsap.set(archRef.current, { scale: 0.9, opacity: 0, y: 30 });
+    if (archRef.current) gsap.set(archRef.current, { scale: 0.9, opacity: 0, y: 30 });
     gsap.set('.hero-glow-circle', { scale: 0.8, opacity: 0 });
 
     tl.to(archRef.current, {
@@ -80,7 +80,7 @@ export default function HeroAnimation({ active }: { active: boolean }) {
       </div>
 
       {/* Group A: Top Header + Arched Couple Frame */}
-      <div className="flex flex-col items-center gap-3 md:gap-5 w-full mt-6 md:mt-0 pt-4 md:pt-0 z-20">
+      <div className="flex flex-col items-center gap-3 md:gap-5 w-full mt-6 md:mt-0 pt-4 md:pt-24 z-20">
         <div
           ref={(el) => { if (el) elementsRef.current[0] = el; }}
           className="text-[9px] md:text-xs tracking-[5px] md:tracking-[12px] uppercase opacity-70 text-[var(--accent)] font-semibold shrink-0 max-w-[240px] md:max-w-none mx-auto"
@@ -90,10 +90,8 @@ export default function HeroAnimation({ active }: { active: boolean }) {
 
         <div
           ref={archRef}
-          className="w-[245px] h-[340px] md:w-[310px] md:h-[410px] rounded-t-full overflow-hidden border-2 border-[var(--accent)]/35 relative bg-[var(--bg-tertiary)] shrink-0 opacity-0"
-          style={{
-            boxShadow: 'var(--shadow-lg)'
-          }}
+          className={`w-[245px] h-[340px] md:w-[310px] md:h-[410px] rounded-t-full overflow-hidden border-2 border-[var(--accent)]/35 relative bg-[var(--bg-tertiary)] shrink-0 transition-opacity duration-[1500ms] ease-out ${active ? '' : 'opacity-0'}`}
+          style={{ boxShadow: 'var(--shadow-lg)' }}
         >
           <div className="absolute inset-[3px] border border-[var(--accent)]/20 rounded-t-full z-20 pointer-events-none" />
 

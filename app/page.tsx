@@ -111,7 +111,7 @@ export default function Home() {
         <ScrollAnimations />
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex fixed top-6 left-1/2 -translate-x-1/2 px-8 py-3.5 rounded-full glass-panel z-40 border border-[var(--accent)]/20 shadow-2xl items-center gap-12 text-[var(--text-muted)]">
+        <nav className={`hidden lg:flex fixed top-6 left-1/2 -translate-x-1/2 px-8 py-3.5 rounded-full z-40 border border-[var(--accent)]/20 shadow-2xl items-center gap-12 text-[var(--text-muted)] bg-[#0a1a12]/90 backdrop-blur-2xl transition-all duration-700 ease-out ${loaderComplete ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6 pointer-events-none'}`} style={{ transitionDelay: loaderComplete ? '400ms' : '0ms' }}>
           <div className="logo font-serif font-bold text-xl tracking-widest text-gradient">R &amp; S</div>
           <div className="flex gap-8 text-[10px] tracking-[0.25em] uppercase font-semibold">
             <a href="#couple" className="hover:text-[var(--accent)] transition-colors">The Couple</a>
